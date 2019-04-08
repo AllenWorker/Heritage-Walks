@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="background">
 <div class="grid-container">
     <div class="grid-x">
         <header class="large-12 medium-12 small-12">

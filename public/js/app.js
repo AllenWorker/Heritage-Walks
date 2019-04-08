@@ -56574,8 +56574,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\J392018\Documents\Repo\Heritage-Walks\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\J392018\Documents\Repo\Heritage-Walks\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\V244682\Documents\laraval\update\Heritage-Walks\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\V244682\Documents\laraval\update\Heritage-Walks\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
