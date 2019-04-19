@@ -20,7 +20,7 @@
                 <nav class="top-bar" id="example-menu">
                     <div class="top-bar-left">
                         <ul class="menu vertical medium-horizontal">
-                            <li><img src="../../public/images/logo.png"></li>
+                            <li><img src="{{ asset('images/logo.png') }}"></li>
                             <li class="menu-text menu-title">Heritage Walks</li>
                             <li><a href="#">Trails</a></li>
                             <li><a href="#">Stops</a></li>
