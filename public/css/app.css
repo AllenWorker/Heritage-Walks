@@ -7791,6 +7791,19 @@ html.is-reveal-open body {
 }
 
 .background {
-  background-color: #687268;
+  background-color: #ffffff;
+}
+
+.callout {
+  border-color: #5b9613;
+}
+
+.menu-text {
+  color: #36590c;
+  font-style: oblique;
+}
+
+.menu-title {
+  color: #36590c;
 }
 
