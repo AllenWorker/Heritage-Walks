@@ -15,8 +15,8 @@ class StopsSeeder extends Seeder
            'name' => 'I is something',
            'short_desc' => 'something something',
             'full_desc' => 'ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
-            'cord_x' => 0,
-            'cord_y' => 0,
+            'coord_x' => 0.0,
+            'coord_y' => 0.0,
             'created_at' => DB::raw('CURRENT_TIMESTAMP'),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
