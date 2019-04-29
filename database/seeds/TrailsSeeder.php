@@ -12,7 +12,7 @@ class TrailsSeeder extends Seeder
     public function run()
     {
         DB::table('trails')->insert([
-            'name' => '',
+            'name' => 'names',
             'time' => 0,
             'length' => 0,
             'created_at' => 'CURRENT_TIMESTAMP',
