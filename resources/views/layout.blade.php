@@ -27,8 +27,9 @@
                     <div class="top-bar-left">
                         <ul class="menu vertical medium-horizontal">
                             <li class="menu-text menu-title">Heritage Walks</li>
-                            <li><a href="#">Trails</a></li>
-                            <li><a href="#">Stops</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/trails">Trails</a></li>
+                            <li><a href="/stops">Stops</a></li>
                         </ul>
                     </div>
 

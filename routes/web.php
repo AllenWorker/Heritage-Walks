@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/welcome');
-});
+Route::get('/', 'PagesController@index' );
+
+
 
 Route::resource('stops', 'StopsController');
 Route::resource('trails', 'TrailsController');

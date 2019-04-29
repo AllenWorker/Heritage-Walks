@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Trail;
 
 class TrailsController extends Controller
 {
@@ -13,7 +15,11 @@ class TrailsController extends Controller
      */
     public function index()
     {
-        //
+        $trails = Trail::all();
+        return view(
+            'trails.index', /* the view to see */
+            compact('trails') /* send the $manufacturers */
+        );
     }
 
     /**

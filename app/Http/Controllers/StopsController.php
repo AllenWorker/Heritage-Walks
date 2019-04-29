@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Stop;
 
 class StopsController extends Controller
 {
@@ -13,7 +14,11 @@ class StopsController extends Controller
      */
     public function index()
     {
-        //
+        $stops = Stop::all();
+        return view(
+            'stops.index', /* the view to see */
+            compact('stops') /* send the $manufacturers */
+        );
     }
 
     /**
