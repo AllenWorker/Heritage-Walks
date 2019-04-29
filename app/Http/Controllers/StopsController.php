@@ -37,9 +37,18 @@ class StopsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $validated = request()->validate([
+                'name' => ['required'],
+            'short_desc' => ['required', 'max:255'],
+            'full_desc' => ['required', 'max:255'],
+            'coord_x' => ['required'],
+            'coord_y' => ['required']
+        ]);
+
+        Stop::create($validated);
+        return redirect('/stops');
     }
 
     /**
