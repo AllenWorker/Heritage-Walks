@@ -28,7 +28,7 @@ class StopsController extends Controller
      */
     public function create()
     {
-        //
+        return view('stops.create');
     }
 
     /**

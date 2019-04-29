@@ -12,8 +12,8 @@ class StopsSeeder extends Seeder
     public function run()
     {
         DB::table('stops')->insert([
-           'name' => 'I is something',
-           'short_desc' => 'something something',
+            'name' => 'I is something',
+            'short_desc' => 'something something',
             'full_desc' => 'ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
             'coord_x' => 0.0,
             'coord_y' => 0.0,
