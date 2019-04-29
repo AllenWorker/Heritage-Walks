@@ -4,18 +4,26 @@
 
 @section('content')
     <br>
+    <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails</h2>
+            <a href="{{action('TrailsController@create')}}" class="button success">Add Stops</a>
         </div>
-        <div class="grid-x grid-margin-x">
-        <div>
-            @foreach($trails as $aTrail)
-                <li>
-                    <b>{{ $aTrail->id }}</b>
-                    <span >{{ $aTrail->name }}</span>
-                    <a href="/trails/{{ $aTrail->id }}" >Details</a>
-                </li>
-            @endforeach
+        <div class="small-12 medium-12 large-12 callout">
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Details</th>
+                </tr>
+                @foreach($trails as $aTrail)
+                    <tr>
+                        <td><b>{{ $aTrail->id }}</b></td>
+                        <td><p>{{ $aTrail->name }}</p></td>
+                        <td><a href="/trails/{{ $aTrail->id }}">Details</a></td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
     </div>
 @endsection
