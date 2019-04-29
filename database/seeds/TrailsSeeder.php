@@ -15,8 +15,8 @@ class TrailsSeeder extends Seeder
             'name' => 'names',
             'time' => 0,
             'length' => 0,
-            'created_at' => 'CURRENT_TIMESTAMP',
-            'update_at' => 'CURRENT_TIMESTAMP',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
     }
 }

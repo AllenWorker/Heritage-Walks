@@ -14,8 +14,8 @@ class TrailStopSeeder extends Seeder
         DB::table('trail_stop')->insert([
             'trail_id' => 0,
             'stop_id' => 0,
-            'create_at' => 'CURRENT_TIMESTAMP',
-            'updated_at' => 'CURRENT_TIMESTAMP',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
     }
 }
