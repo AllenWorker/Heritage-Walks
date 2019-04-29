@@ -1,10 +1,19 @@
 <?php
 
 
-namespace App\Providers;
+namespace App;
 use Illuminate\Database\Eloquent\Model;
-
-class TrailStop
+use Illuminate\Database\Eloquent\Relations\Pivot;
+class TrailStop extends Pivot
 {
+    protected $table = 'trail_stop';
+    public $incrementing = true;
 
+    public function trail(){
+        return $this->belongsTo(Trail::class);
+    }
+
+    public function game(){
+        return $this->belongsTo(Stop::class);
+    }
 }
