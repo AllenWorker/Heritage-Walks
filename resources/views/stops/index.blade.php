@@ -19,7 +19,7 @@
                 </tr>
                 @foreach($stops as $aStop)
                     <tr>
-                        <td><b>{{ $aStop->id }}</b></td>
+                        <td><p>{{ $aStop->id }}</p></td>
                         <td><p>{{ $aStop->name }}</p></td>
                         <td><p>{{ $aStop->short_desc }}</p></td>
                         <td><a href="/stops/{{ $aStop->id }}">Details</a></td>

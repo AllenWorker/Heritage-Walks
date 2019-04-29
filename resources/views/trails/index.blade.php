@@ -18,7 +18,7 @@
                 </tr>
                 @foreach($trails as $aTrail)
                     <tr>
-                        <td><b>{{ $aTrail->id }}</b></td>
+                        <td><p>{{ $aTrail->id }}</p></td>
                         <td><p>{{ $aTrail->name }}</p></td>
                         <td><a href="/trails/{{ $aTrail->id }}">Details</a></td>
                     </tr>
