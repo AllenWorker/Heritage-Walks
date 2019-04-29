@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class stopsController extends Controller
+class StopsController extends Controller
 {
     /**
      * Display a listing of the resource.
