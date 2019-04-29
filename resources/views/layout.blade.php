@@ -26,11 +26,7 @@
                 </div>
                     <div class="top-bar-left">
                         <ul class="menu vertical medium-horizontal">
-<<<<<<< HEAD
-                            <li><img src="{{ asset('images/logo.png') }}"></li>
                             <li class="menu-text menu-title">Heritage Walks</li>
-=======
->>>>>>> fundation
                             <li><a href="#">Trails</a></li>
                             <li><a href="#">Stops</a></li>
                         </ul>

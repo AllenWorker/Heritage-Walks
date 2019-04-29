@@ -8700,7 +8700,7 @@ function (_Plugin) {
       this._addContentClasses(isRevealed);
     }
     /**
-     * Stops scrolling of the body when offcanvas is open on mobile Safari and other troublesome browsers.
+     * stops scrolling of the body when offcanvas is open on mobile Safari and other troublesome browsers.
      * @private
      */
 

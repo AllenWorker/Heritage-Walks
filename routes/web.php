@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('pages/welcome');
 });
+
+Route::resource('stops', 'stopsController');
+Route::resource('trails', 'trailsController');
+
