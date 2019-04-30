@@ -8,8 +8,6 @@
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Stops</h2>
             <a href="{{action('StopsController@create')}}" class="button success">Add Stop</a>
-        </div>
-        <div class="small-12 medium-12 large-12 callout">
             <table>
                 <tr>
                     <th>Id</th>
@@ -17,7 +15,6 @@
                     <th>Short Description</th>
                     <th>Details</th>
                 </tr>
-	
                 @foreach($stops as $aStop)
                     <tr>
                         <td><p>{{ $aStop->id }}</p></td>

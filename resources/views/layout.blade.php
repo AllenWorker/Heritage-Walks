@@ -41,7 +41,7 @@
             </nav>
         </header>
         <br>
-        <div class="padding-top-1">
+        <div class="padding-top-1 large-12 medium-12 small-12">
             @yield('content')
         </div>
         <footer class="large-12 medium-12 small-12">

@@ -8,8 +8,6 @@
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails</h2>
             <a href="{{action('TrailsController@create')}}" class="button success">Add Trail</a>
-        </div>
-        <div class="small-12 medium-12 large-12 callout">
             <table>
                 <tr>
                     <th>Id</th>
