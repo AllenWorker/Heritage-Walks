@@ -7,14 +7,14 @@
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Stop | {{ $stop->id }}</h2>
-            <!--<a href="{{action('')}}" class="button success">Edit Stop</a>
-			<a href="{{action('')}}" class="button success">Delete Stop</a>-->
+            <a href="" class="button success">Edit Stop</a>
+			<a href="" class="button success">Delete Stop</a>
         </div>
         <div class="small-12 medium-12 large-12 callout">
             <table>
 				<tr>
 					<th>ID </th>
-					<td> {{ $stop->id }}<td>
+					<td> {{ $stop->name}}<td>
 				</tr>
 				<tr>
 					<th>Name </th>

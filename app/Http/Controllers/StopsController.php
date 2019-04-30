@@ -71,7 +71,8 @@ class StopsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $stop = Stop::findOrFail($id);
+		return view('stops.edit', compact('stop'));
     }
 
     /**
