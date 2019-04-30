@@ -17,6 +17,7 @@
                     <th>short description</th>
                     <th>Details</th>
                 </tr>
+	
                 @foreach($stops as $aStop)
                     <tr>
                         <td><p>{{ $aStop->id }}</p></td>

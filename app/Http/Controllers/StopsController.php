@@ -59,7 +59,8 @@ class StopsController extends Controller
      */
     public function show($id)
     {
-        //
+        $stop = Stop::findOrFail($id);
+		return view('stops.show', compact('stop'));
     }
 
     /**
