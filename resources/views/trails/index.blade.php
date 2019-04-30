@@ -1,13 +1,13 @@
 @extends('../layout')
 
-@section ('title' , 'Stops')
+@section ('title' , 'Heritage Walks - Trails')
 
 @section('content')
     <br>
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails</h2>
-            <a href="{{action('TrailsController@create')}}" class="button success">Add Stops</a>
+            <a href="{{action('TrailsController@create')}}" class="button success">Add Trail</a>
         </div>
         <div class="small-12 medium-12 large-12 callout">
             <table>
