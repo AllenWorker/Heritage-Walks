@@ -95,6 +95,8 @@ class StopsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $stop = Stop::findOrFail($id);
+        $stop->delete();
+        return redirect('/stops');
     }
 }
