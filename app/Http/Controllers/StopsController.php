@@ -84,7 +84,22 @@ class StopsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'short_desc' => ['required', 'max:255'],
+            'full_desc' => ['required', 'max:255'],
+            'coord_x' => ['required'],
+            'coord_y' => ['required']
+        ]);
+        $stop = Stop::find($id);
+        $stop->name = $request->get('name');
+        $stop->short_desc = $request->get('short_desc');
+        $stop->full_desc = $request->get('full_desc');
+        $stop->coord_x = $request->get('coord_x');
+        $stop->coord_y = $request->get('coord_y');
+        $stop->save();
+
+        return redirect('/stops');
     }
 
     /**

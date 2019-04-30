@@ -6,8 +6,8 @@
     <br>
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
-            <h2>Stop | {{ $stop->id }}</h2>
-            <button class="button success">Edit Stop</button>
+            <h2>Stop | {{ $stop->name }}</h2>
+            <a  href="{{$stop->id}}/edit" class="button success">Edit Stop</a>
 			<p><button class="button success" data-open="Modal">Delete Stop</button></p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
