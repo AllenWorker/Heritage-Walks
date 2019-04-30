@@ -379,10 +379,6 @@ input[type=search] {
   color: #cacaca;
 }
 
-::-moz-placeholder {
-  color: #cacaca;
-}
-
 :-ms-input-placeholder {
   color: #cacaca;
 }
@@ -599,10 +595,6 @@ select[multiple] {
 }
 
 .is-invalid-input:not(:focus)::-webkit-input-placeholder {
-  color: #cc4b37;
-}
-
-.is-invalid-input:not(:focus)::-moz-placeholder {
   color: #cc4b37;
 }
 
@@ -7822,5 +7814,10 @@ h3 {
 
 a {
   font-size: 140%;
+}
+
+.wrap-text {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
 }
 

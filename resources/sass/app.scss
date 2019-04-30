@@ -38,3 +38,7 @@ h2 , h3{
 a{
   font-size: 140%;
 }
+.wrap-text {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}

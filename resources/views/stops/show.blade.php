@@ -14,7 +14,7 @@
             <table>
 				<tr>
 					<th>ID </th>
-					<td> {{ $stop->name}}<td>
+					<td> {{ $stop->id}}<td>
 				</tr>
 				<tr>
 					<th>Name </th>
