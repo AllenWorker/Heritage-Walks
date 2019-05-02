@@ -6,7 +6,7 @@
     <br>
     <div class="grid-x grid-padding-x">
         <div class="small-12 medium-12 large-12 callout text-center">
-            <h3>Add Trails</h3>
+            <h3>Edit Trail</h3>
         </div>
         @if($errors->any())
             <div class="small-12 medium-12 large-12 callout alert ">
@@ -15,22 +15,23 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" action="/trails" class="callout small-12 medium-12 large-12" name="addtrail">
-            {{csrf_field()}}
+        <form method="post" action="{{ route('trails.update', $trail->id) }}" class="callout small-12 medium-12 large-12" name="edittrail">
+            @method('PATCH')
+            @csrf
             <div class=" grid-x grid-margin-x">
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="name">Name
-                        <input type="text" name="name">
+                        <input type="text" name="name" value="{{ $trail->name }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="length">Length (km)
-                        <input type="text" name="length">
+                        <input type="text" name="length" value="{{ $trail->length }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="Time">Time (hr)
-                        <input type="text" name="time">
+                        <input type="text" name="time" value="{{ $trail->time }}">
                     </label>
                 </div>
                 <div class="large-offset-1 medium-offset-1 small-offset-3">

@@ -71,7 +71,8 @@ class TrailsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $trail = trail::findOrFail($id);
+        return view('trails.edit', compact('trail'));
     }
 
     /**
@@ -83,7 +84,18 @@ class TrailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'length' => ['required'],
+            'time' => ['required'],
+        ]);
+        $trail = trail::findOrFail($id);
+        $trail->name = $request->get('name');
+        $trail->length = $request->get('length');
+        $trail->time = $request->get('time');
+        $trail->save();
+
+        return redirect('/trails');
     }
 
     /**
