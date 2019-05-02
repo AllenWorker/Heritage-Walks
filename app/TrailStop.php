@@ -13,7 +13,7 @@ class TrailStop extends Pivot
         return $this->belongsTo(Trail::class);
     }
 
-    public function game(){
+    public function stop(){
         return $this->belongsTo(Stop::class);
     }
 }
