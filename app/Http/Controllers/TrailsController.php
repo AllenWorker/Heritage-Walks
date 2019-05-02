@@ -29,7 +29,7 @@ class TrailsController extends Controller
      */
     public function create()
     {
-        //
+         return view('trails.create');
     }
 
     /**
@@ -40,7 +40,15 @@ class TrailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = request()->validate([
+            'name' => ['required'],
+            'length' => ['required'],
+            'time' => ['required'],
+
+        ]);
+
+       Trail::create($validated);
+        return redirect('/trails');
     }
 
     /**
@@ -51,7 +59,8 @@ class TrailsController extends Controller
      */
     public function show($id)
     {
-        //
+        $trail = Trail::findOrFail($id);
+        return view('trails.show', compact('trail'));
     }
 
     /**
@@ -85,6 +94,8 @@ class TrailsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $trail = Trail::findOrFail($id);
+        $trail->delete();
+        return redirect('/trails');
     }
 }
