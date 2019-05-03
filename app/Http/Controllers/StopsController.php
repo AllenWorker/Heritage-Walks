@@ -34,13 +34,13 @@ class StopsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store()
     {
         $validated = request()->validate([
-                'name' => ['required'],
+            'name' => ['required'],
             'short_desc' => ['required'],
             'full_desc' => ['required'],
             'coord_x' => ['required', 'numeric'],
@@ -54,32 +54,32 @@ class StopsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $stop = Stop::findOrFail($id);
-		return view('stops.show', compact('stop'));
+        return view('stops.show', compact('stop'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $stop = Stop::findOrFail($id);
-		return view('stops.edit', compact('stop'));
+        return view('stops.edit', compact('stop'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -105,7 +105,7 @@ class StopsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,4 +114,12 @@ class StopsController extends Controller
         $stop->delete();
         return redirect('/stops');
     }
+
+    public function apiStops()
+    {
+        return Stop::all();
+    }
+
+
 }
+

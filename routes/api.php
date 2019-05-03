@@ -1,6 +1,5 @@
 <?php
 
-use App\Stop;
 use Illuminate\Http\Request;
 
 /*
@@ -18,8 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('stops', function(){
-    $stops = Stop::all();
-    return $stops;
-});
+Route::get('stops', 'StopsController@apiStops');
 
