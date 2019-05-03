@@ -43,8 +43,8 @@ class StopsController extends Controller
                 'name' => ['required'],
             'short_desc' => ['required'],
             'full_desc' => ['required'],
-            'coord_x' => ['required'],
-            'coord_y' => ['required']
+            'coord_x' => ['required', 'numeric'],
+            'coord_y' => ['required', 'numeric']
         ]);
 
         Stop::create($validated);
@@ -88,8 +88,8 @@ class StopsController extends Controller
             'name' => ['required'],
             'short_desc' => ['required'],
             'full_desc' => ['required'],
-            'coord_x' => ['required'],
-            'coord_y' => ['required']
+            'coord_x' => ['required', 'numeric'],
+            'coord_y' => ['required', 'numeric']
         ]);
         $stop = Stop::find($id);
         $stop->name = $request->get('name');
