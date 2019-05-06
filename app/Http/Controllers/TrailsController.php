@@ -110,4 +110,15 @@ class TrailsController extends Controller
         $trail->delete();
         return redirect('/trails');
     }
+
+
+    public function apiAll()
+    {
+        return Trail::all();
+    }
+
+    public function apiOne($id)
+    {
+        return Trail::findOrFail($id);
+    }
 }
