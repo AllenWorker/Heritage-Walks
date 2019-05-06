@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section ('title' , 'Heritage Walks - Login')
+
 @section('content')
     <br>
     <div class="container">
