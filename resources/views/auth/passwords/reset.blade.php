@@ -4,7 +4,7 @@
     <br>
     <div class="container">
 
-        <div class="callout"><h3>{{ __('Reset Password') }}</h3></div>
+        <div class="callout  text-center"><h3>{{ __('Reset Password') }}</h3></div>
 
         <div class="callout">
             <form method="POST" action="{{ route('password.update') }}">

@@ -6,7 +6,7 @@
     <br>
     <div class="container">
         <div class="small-12 medium-12 large-12 callout text-center">
-            <div class="card-header">{{ __('Register') }}</div>
+            <div class="card-header"><h3>{{ __('Register') }}</h3></div>
         </div>
 
         <div class="callout">
