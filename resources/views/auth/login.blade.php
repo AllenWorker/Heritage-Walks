@@ -13,7 +13,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <div>
                         <label for="email">{{ __('E-Mail Address') }}</label>
 
                         <div>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
 
-                    <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <div>
                         <label for="password">{{ __('Password') }}</label>
 
                         <div>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <div>
                         <div>
                             <div>
                                 <input type="checkbox" name="remember"
@@ -58,17 +58,18 @@
                         </div>
                     </div>
 
-                    <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <div>
                         <div>
                             <button type="submit" class="button success">
                                 {{ __('Login') }}
                             </button>
-
-                            @if (Route::has('password.request'))
-                                <a  href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
+                            <div>
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </form>
