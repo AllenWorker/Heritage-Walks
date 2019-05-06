@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section ('title' , 'Heritage Walks - Add Stop')
 

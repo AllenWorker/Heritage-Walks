@@ -18,3 +18,7 @@ Route::get('/', 'PagesController@index' );
 Route::resource('stops', 'StopsController');
 Route::resource('trails', 'TrailsController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
