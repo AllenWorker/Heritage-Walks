@@ -3,7 +3,7 @@
 @section('content')
    <br>
     <div class="callout small-12 medium-12 large-12 text-center">
-        <h2>Hello Admin</h2>
+        <h2>Hello  {{ Auth::user()->name }}</h2>
     </div>
     <div class="grid-x grid-margin-x">
         <div class=" callout small-12 medium-6 large-6 cell">

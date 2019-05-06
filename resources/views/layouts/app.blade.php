@@ -53,12 +53,7 @@
                                 </li>
                             @endif
                         @else
-                            <li >
-                                <a id="navbarDropdown" href="#" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
+                            <li>
                                 <div aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
