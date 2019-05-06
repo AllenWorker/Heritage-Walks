@@ -15,8 +15,8 @@ Route::get('/', 'PagesController@index' );
 
 
 
-Route::resource('stops', 'StopsController');
-Route::resource('trails', 'TrailsController');
+Route::resource('stops', 'StopsController')->middleware('auth');
+Route::resource('trails', 'TrailsController')->middleware('auth');
 
 
 Auth::routes();
