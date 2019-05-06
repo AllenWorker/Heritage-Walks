@@ -58,18 +58,18 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div>
-                            <button type="submit" class="button success">
+                    <div class="grid-x">
+                        <div class="large-1 medium-1">
+                            <button type="submit" class="button success  small-offset-1 large-offset-0">
                                 {{ __('Login') }}
                             </button>
-                            <div>
-                                @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
+                        </div>
+                        <div class="large-6 medium-6 small-offset-1  large-offset-0">
+                            @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}">
+                                    <button class="button alert">{{ __('Forgot Your Password?') }}</button>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </form>
