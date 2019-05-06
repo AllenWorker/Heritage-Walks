@@ -115,9 +115,14 @@ class StopsController extends Controller
         return redirect('/stops');
     }
 
-    public function apiStops()
+    public function apiAll()
     {
         return Stop::all();
+    }
+
+    public function apiOne($id)
+    {
+            return Stop::findOrFail($id);
     }
 
 

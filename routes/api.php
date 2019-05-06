@@ -17,5 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('stops', 'StopsController@apiStops');
+Route::get('stops', 'StopsController@apiAll');
+Route::get('stops/{id}', 'StopsController@apiOne');
+
+Route::get('trails', 'TrailsController@apiAll');
+Route::get('trails/{id}', 'TrailsController@apiOne');
 
