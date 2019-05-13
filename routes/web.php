@@ -19,6 +19,6 @@ Route::resource('stops', 'StopsController')->middleware('auth');
 Route::resource('trails', 'TrailsController')->middleware('auth');
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
