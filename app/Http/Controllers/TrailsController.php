@@ -61,7 +61,10 @@ class TrailsController extends Controller
     {
         $trail = Trail::findOrFail($id);
      return view('trails.show', compact('trail'));
-    //  dd( $trail->stops);
+//        foreach ($trail->stops as $stops) {
+//            dd( $stops);
+//        }
+
     }
 
     /**

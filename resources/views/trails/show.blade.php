@@ -6,42 +6,57 @@
     <br>
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
-            <h2>Stop | {{ $trail->name }}</h2>
-            <a  href="{{$trail->id}}/edit" class="button success">Edit Stop</a>
-            <p><button class="button success" data-open="Modal">Delete Stop</button></p>
+            <h2>Trails | {{ $trail->name }}</h2>
+            <a href="{{$trail->id}}/edit" class="button success">Edit Stop</a>
+            <p>
+                <button class="button success" data-open="Modal">Delete Stop</button>
+            </p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
             <table>
                 <tr>
-                    <th>ID </th>
-                    <td> {{ $trail->id}}<td>
+                    <th>ID</th>
+                    <td> {{ $trail->id}}
+                    <td>
                 </tr>
                 <tr>
-                    <th>Name </th>
-                    <td> {{ $trail->name }}<td>
+                    <th>Name</th>
+                    <td> {{ $trail->name }}
+                    <td>
                 </tr>
                 <tr>
                     <th>Length (Km)</th>
-                    <td> {{ $trail->length }}<td>
+                    <td> {{ $trail->length }}
+                    <td>
                 </tr>
                 <tr>
                     <th>Time (hr)</th>
-                    <td> {{ $trail->time }}<td>
+                    <td> {{ $trail->time }}
+                    <td>
                 </tr>
                 <tr>
                     <th>created_at</th>
-                    <td> {{ $trail->created_at }}<td>
+                    <td> {{ $trail->created_at }}
+                    <td>
                 </tr>
                 <tr>
                     <th>updated_at</th>
-                    <td> {{ $trail->updated_at }}<td>
+                    <td> {{ $trail->updated_at }}
+                    <td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="small-12 medium-12 large-12 callout">
-
+        <h3>Stops</h3>
+        <ul>
+        @foreach($trail->stops as $stops)
+            <a href="../../stops/{{$stops->id}}">
+             <li>{{$stops->name}}</li>
+            </a>
+        @endforeach
+        </ul>
     </div>
     <div class="reveal" id="Modal" data-reveal>
         <h1>Are you sure?</h1>
