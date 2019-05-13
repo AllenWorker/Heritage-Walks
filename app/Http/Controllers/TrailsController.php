@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Stop;
 use Illuminate\Http\Request;
 use App\Trail;
 
@@ -29,7 +30,8 @@ class TrailsController extends Controller
      */
     public function create()
     {
-         return view('trails.create');
+        $stops = Stop::all();
+         return view('trails.create', compact('stops'));
     }
 
     /**
@@ -40,15 +42,28 @@ class TrailsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = request()->validate([
+    /*  $validated = request()->validate([
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
 
-        ]);
+       ]);
 
-       Trail::create($validated);
-        return redirect('/trails');
+      Trail::create($validated);*/
+      $trail = Trail::where('name', $request->get('name'))->get();
+        $stop = $request->get('stops');
+        $mapstop = $stop->map(function ($item, $key) {
+            return $item;
+        });
+        dd($mapstop->all());
+    //$trail->stops()->attach($mapstop->all());
+
+     return redirect('/trails');
+//     $array = $request->get('stops');
+//  $stops = $array;
+   //dd($stop);
+
+
     }
 
     /**
