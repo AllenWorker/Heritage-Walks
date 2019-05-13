@@ -40,6 +40,9 @@
         </div>
     </div>
 
+    <div class="small-12 medium-12 large-12 callout">
+
+    </div>
     <div class="reveal" id="Modal" data-reveal>
         <h1>Are you sure?</h1>
         <p class="lead">Do you wish to delete this?</p>

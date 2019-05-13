@@ -60,7 +60,8 @@ class TrailsController extends Controller
     public function show($id)
     {
         $trail = Trail::findOrFail($id);
-        return view('trails.show', compact('trail'));
+     return view('trails.show', compact('trail'));
+    //  dd( $trail->stops);
     }
 
     /**
@@ -110,4 +111,6 @@ class TrailsController extends Controller
         $trail->delete();
         return redirect('/trails');
     }
+
+
 }

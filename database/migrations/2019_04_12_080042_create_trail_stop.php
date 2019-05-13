@@ -19,7 +19,7 @@ class CreateTrailStop extends Migration
             $table->unsignedInteger('stop_id');
 
          //  $table->foreign('trail_id')->references('id')->on('trails')->onDelete('cascade');
-        //  $table->foreign('stop_id')->references('id')->on('stops')->onDelete('cascade');
+        // $table->foreign('stop_id')->references('id')->on('stops')->onDelete('cascade');
 
             $table->timestamps();
         });
