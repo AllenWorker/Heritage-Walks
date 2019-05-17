@@ -41,7 +41,8 @@ class StopsSeeder extends Seeder
           DB::table('stops')->insert([
             'name' => 'Ozone Reserve',
             'short_desc' => '1 Adelaide Terrace',
-            'full_desc' => 'Ozone Reserve continues the sweep of green riverside land towards the eastern end of the city. Recent works on the reserve have introduced an environmentally friendly irrigation lake, Lake Vasto, named in recognition of Perth's Italian sister city.',
+            'full_desc' => 'Ozone Reserve continues the sweep of green riverside land towards the eastern end of the city. 
+             Recent works on the reserve have introduced an environmentally friendly irrigation lake, Lake Vasto, named in recognition of Perth&#39;s Italian sister city.',
             'coord_x' => -31.962505,
             'coord_y' => 115.877436,
             'created_at' => DB::raw('CURRENT_TIMESTAMP'),
