@@ -29,5 +29,33 @@ class StopsSeeder extends Seeder
             'created_at' => DB::raw('CURRENT_TIMESTAMP'),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
+          DB::table('stops')->insert([
+            'name' => 'Langley Park',
+            'short_desc' => 'Corner Plain Street & Riverside Drive',
+            'full_desc' => 'Today, Langley Park is a popular vantage point for the annual Australia Day Skyworks, as well as the venue for many sporting events, exhibitions and marches',
+            'coord_x' => -31.961531,
+            'coord_y' => 115.869057,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+          DB::table('stops')->insert([
+            'name' => 'Ozone Reserve',
+            'short_desc' => '1 Adelaide Terrace',
+            'full_desc' => 'Ozone Reserve continues the sweep of green riverside land towards the eastern end of the city. 
+             Recent works on the reserve have introduced an environmentally friendly irrigation lake, Lake Vasto, named in recognition of Perth&#39;s Italian sister city.',
+            'coord_x' => -31.962505,
+            'coord_y' => 115.877436,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+            DB::table('stops')->insert([
+            'name' => 'Point Fraser',
+            'short_desc' => 'Corner Riverside Drive & The Causeway',
+            'full_desc' => 'This artificial wetland, accessed by a series of interconnecting boardwalks, serves a number of purposes. Stormwater is filtered through the wetland before flowing in the Swan River, helping to preserve the delicate balance of the river. Native reeds have been planted to attract birds and wildlife to the area. Interpretive works allow visitors to gain an insight into the significance of the site from an environmental, historical and indigenous perspective.',
+            'coord_x' => -31.964453,
+            'coord_y' => 115.877962,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
     }
 }
