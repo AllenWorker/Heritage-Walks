@@ -52,10 +52,8 @@ class TrailsController extends Controller
       Trail::create($validated);*/
       $trail = Trail::where('name', $request->get('name'))->get();
         $stop = $request->get('stops');
-        $mapstop = $stop->map(function ($item, $key) {
-            return $item;
-        });
-        dd($mapstop->all());
+        $mapstop = $stop;
+        dd($mapstop[]);
     //$trail->stops()->attach($mapstop->all());
 
      return redirect('/trails');
