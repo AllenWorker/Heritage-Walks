@@ -10,7 +10,7 @@ class Trail extends Model
 
 
     public function stops(){
-        return $this->hasMany('App\Stop', 'trail_stop');
-//        return $this->belongsToMany(Stop::class, 'trail_stop')->withTimestamps;
+    //    return $this->hasMany('App\Stop', 'trail_stop');
+       return $this->belongsToMany(Stop::class, 'trail_stop');
     }
 }
