@@ -49,10 +49,19 @@ class TrailsController extends Controller
             'time' => ['required'],
 
        ]);
-
+//      dd($request);
       Trail::create($validated);
-      $trail = Trail::where('name', $request->get('name'))->get();
 
+
+      $trail = Trail::where('name', $request->get('name'))->get();
+//      $trail->stops()->attach($request->get('stops'));
+        $stops=$request->get('stops');
+//        dd($stops);
+        foreach ($stops as $stop)
+        {
+          dd($stop);
+            $trail->stops()->attach($stop);
+        }
     }
 
     /**
