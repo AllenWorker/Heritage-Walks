@@ -3,8 +3,9 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Trail extends Model
+class Trail extends Pivot
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

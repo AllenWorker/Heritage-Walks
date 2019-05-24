@@ -55,13 +55,15 @@ class TrailsController extends Controller
 
       $trail = Trail::where('name', $request->get('name'))->get();
 //      $trail->stops()->attach($request->get('stops'));
-        $stops=$request->get('stops');
+//        dd($trail);
+        $trail->stops()->get()->attach(1);
+//        $stops=$request->get('stops');
 //        dd($stops);
-        foreach ($stops as $stop)
-        {
-          dd($stop);
-            $trail->stops()->attach($stop);
-        }
+//        foreach ($stops as $stop)
+//        {
+////          dd((int)$stop);
+//            $trail->stops()->sync((int)$stop);
+//        }
     }
 
     /**
@@ -84,7 +86,7 @@ class TrailsController extends Controller
      */
     public function edit($id)
     {
-        $trail = trail::findOrFail($id);
+        $trail = Trail::findOrFail($id);
         return view('trails.edit', compact('trail'));
     }
 
