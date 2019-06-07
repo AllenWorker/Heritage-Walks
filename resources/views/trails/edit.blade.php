@@ -15,7 +15,7 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" action="{{ route('trails.update', $trail->id) }}" class="callout small-12 medium-12 large-12" name="edittrail">
+        <form method="post" enctype="multipart/form-data" action="{{ route('trails.update', $trail->id) }}" class="callout small-12 medium-12 large-12" name="edittrail">
             @method('PATCH')
             @csrf
             <div class=" grid-x grid-margin-x">
@@ -32,6 +32,12 @@
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="Time">Time (hr)
                         <input type="text" name="time" value="{{ $trail->time }}">
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="img">Image
+                        <img src="/images/trails/{{ $trail->img }}" style="width:50px; height:50px; float:left;">
+                        <input type="file" name="img">
                     </label>
                 </div>
                 <div class="large-offset-1 medium-offset-1 small-offset-3">

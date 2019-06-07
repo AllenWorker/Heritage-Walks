@@ -15,7 +15,7 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" action="/trails" class="callout small-12 medium-12 large-12" name="addtrail">
+        <form method="post" enctype="multipart/form-data" action="/trails" class="callout small-12 medium-12 large-12" name="addtrail">
             {{csrf_field()}}
             <div class=" grid-x grid-margin-x">
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
@@ -31,6 +31,11 @@
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="Time">Time (hr)
                         <input type="text" name="time">
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="img">Image
+                        <input type="file" name="img">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">

@@ -11,6 +11,7 @@
 			<p><button class="button success" data-open="Modal">Delete Stop</button></p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
+			<img src="/images/stops/{{ $stop->img }}" style="width:150px; height:150px; float:left;">
             <table>
 				<tr>
 					<th>ID </th>

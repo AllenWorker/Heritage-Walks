@@ -50,7 +50,14 @@ class TrailsController extends Controller
 
        ]);
 
-      Trail::create($validated);
+     $trail = Trail::create($validated);
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+            $trail->img = $filename;
+            $trail->save();
+        }
      return redirect('/trails');
     }
 
@@ -96,6 +103,13 @@ class TrailsController extends Controller
         $trail->name = $request->get('name');
         $trail->length = $request->get('length');
         $trail->time = $request->get('time');
+
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+            $trail->img = $filename;
+        }
         $trail->save();
 
         return redirect('/trails');

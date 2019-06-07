@@ -13,6 +13,7 @@
             </p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
+                    <img src="/images/trails/{{ $trail->img }}" style="width:150px; height:150px; float:left;">
             <table>
                 <tr>
                     <th>ID</th>

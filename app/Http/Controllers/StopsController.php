@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Stop;
+use Image;
 
 class StopsController extends Controller
 {
@@ -37,17 +38,26 @@ class StopsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         $validated = request()->validate([
             'name' => ['required'],
             'short_desc' => ['required'],
             'full_desc' => ['required'],
             'coord_x' => ['required', 'numeric'],
-            'coord_y' => ['required', 'numeric']
+            'coord_y' => ['required', 'numeric'],
         ]);
+        $stop = Stop::create($validated);
 
-        Stop::create($validated);
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+            $stop->img = $filename;
+            $stop->save();
+        }
+
+
         return redirect('/stops');
     }
 
@@ -97,8 +107,15 @@ class StopsController extends Controller
         $stop->full_desc = $request->get('full_desc');
         $stop->coord_x = $request->get('coord_x');
         $stop->coord_y = $request->get('coord_y');
-        $stop->save();
 
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+            $stop->img = $filename;
+        }
+
+        $stop->save();
         return redirect('/stops');
     }
 
