@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Stop extends Pivot
+class Stop extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

@@ -40,6 +40,17 @@
                         <input type="file" name="img">
                     </label>
                 </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <h5> Edit Stops</h5>
+                    @foreach($stops as $aStop)
+                        <div>
+                            <label>
+                                <input type="checkbox" value="{{$aStop->id}}" name="stops[]">
+
+                                {{ $aStop->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
                 <div class="large-offset-1 medium-offset-1 small-offset-3">
                     <a href="/trails" type="submit" class="button">Back</a>
                 </div>
@@ -47,7 +58,7 @@
                     <input type="reset" class="button alert" value="Clear Form">
                 </div>
                 <div class="large-offset-4 medium-offset-3 small-offset-3">
-                    <input type="submit" class="button success" value="Add">
+                    <input type="submit" class="button success" value="Save">
                 </div>
             </div>
         </form>
