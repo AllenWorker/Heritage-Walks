@@ -23,7 +23,4 @@ Route::resource('trails', 'TrailsController')->middleware('auth');
 Auth::routes(['register' => false]);
 
 
-Route::resource('stops', 'StopsController');
-Route::resource('trails', 'TrailsController');
-
 

@@ -121,7 +121,7 @@ class TrailsController extends Controller
         $trail->save();
 
         return redirect('/trails');
-    }
+        }
     }
 
     /**
