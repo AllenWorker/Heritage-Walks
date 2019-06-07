@@ -117,4 +117,14 @@ class TrailsController extends Controller
     }
 
 
+
+    public function apiAll()
+    {
+        return Trail::all();
+    }
+
+    public function apiOne($id)
+    {
+        return Trail::findOrFail($id);
+    }
 }
