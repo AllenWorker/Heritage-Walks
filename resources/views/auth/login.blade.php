@@ -1,0 +1,79 @@
+@extends('layouts.app')
+
+@section ('title' , 'Heritage Walks - Login')
+
+@section('content')
+    <br>
+    <div class="container">
+        <div class="small-12 medium-12 large-12 callout text-center">
+            <h3>{{ __('Login') }}</h3>
+        </div>
+        <div class="callout">
+            <div class="">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div>
+                        <label for="email">{{ __('E-Mail Address') }}</label>
+
+                        <div>
+                            <input id="email" type="email"
+                                   class="form-control{{ $errors->has('email') ? ' alert' : '' }}" name="email"
+                                   value="{{ old('email') }}" required autofocus>
+
+                            @if ($errors->has('email'))
+                                <span class="alert" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password">{{ __('Password') }}</label>
+
+                        <div>
+                            <input id="password" type="password"
+                                   class="form-control{{ $errors->has('password') ? ' alert' : '' }}"
+                                   name="password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="alert" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <input type="checkbox" name="remember"
+                                       id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                <label for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-x">
+                        <div class="large-1 medium-1">
+                            <button type="submit" class="button success  small-offset-1 large-offset-0">
+                                {{ __('Login') }}
+                            </button>
+                        </div>
+                        <div class="large-6 medium-6 small-offset-1  large-offset-0">
+                            @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}">
+                                    <button class="button alert">{{ __('Forgot Your Password?') }}</button>
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

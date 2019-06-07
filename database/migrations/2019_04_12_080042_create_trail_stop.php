@@ -14,9 +14,13 @@ class CreateTrailStop extends Migration
     public function up()
     {
         Schema::create('trail_stop', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('trail_id');
-            $table->bigInteger('stop_id');
+            $table->primary(['trail_id' ,'stop_id']);
+            $table->unsignedInteger('trail_id');
+            $table->unsignedInteger('stop_id');
+
+         //  $table->foreign('trail_id')->references('id')->on('trails')->onDelete('cascade');
+        // $table->foreign('stop_id')->references('id')->on('stops')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

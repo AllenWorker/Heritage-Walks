@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section ('title' , 'Heritage Walks - Add Trails')
 
@@ -33,16 +33,27 @@
                         <input type="text" name="time">
                     </label>
                 </div>
-                <div class="large-offset-1 medium-offset-1 small-offset-3">
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <h5> Add Stops</h5>
+                    @foreach($stops as $aStop)
+                        <div>
+                            <label>
+                                <input type="checkbox" value="{{$aStop->id}}" name="stops[]">
+                                {{ $aStop->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="large-offset-1 medium-offset-1">
                     <a href="/trails" type="submit" class="button">Back</a>
                 </div>
-                <div class="large-offset-3 medium-offset-3 small-offset-3">
+                <div class="large-offset-3 medium-offset-3 hide-for-small-only">
                     <input type="reset" class="button alert" value="Clear Form">
                 </div>
-                <div class="large-offset-4 medium-offset-3 small-offset-3">
+                <div class="large-offset-4 medium-offset-3 small-offset-8">
                     <input type="submit" class="button success" value="Add">
                 </div>
             </div>
         </form>
+
     </div>
 @endsection

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 class TrailStop extends Pivot
 {
-    protected $table = 'trail_stop';
+    /*protected $table = 'trail_stop';
     public $incrementing = true;
 
     public function trail(){
@@ -15,5 +15,5 @@ class TrailStop extends Pivot
 
     public function stop(){
         return $this->belongsTo(Stop::class);
-    }
+    }*/
 }
