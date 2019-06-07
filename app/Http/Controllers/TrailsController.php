@@ -48,7 +48,12 @@ class TrailsController extends Controller
             'time' => ['required'],
 
        ]);
+
       Trail::create($validated);
+      
+
+      Trail::create($validated);
+     return redirect('/trails');
 
     }
 
@@ -115,4 +120,14 @@ class TrailsController extends Controller
     }
 
 
+
+    public function apiAll()
+    {
+        return Trail::all();
+    }
+
+    public function apiOne($id)
+    {
+        return Trail::findOrFail($id);
+    }
 }

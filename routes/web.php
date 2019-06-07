@@ -15,10 +15,15 @@ Route::get('/', 'PagesController@index' );
 
 
 
+
 Route::resource('stops', 'StopsController')->middleware('auth');
 Route::resource('trails', 'TrailsController')->middleware('auth');
 
 
 Auth::routes(['register' => false]);
+
+
+Route::resource('stops', 'StopsController');
+Route::resource('trails', 'TrailsController');
 
 
