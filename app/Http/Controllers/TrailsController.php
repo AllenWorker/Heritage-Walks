@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Stop;
 use Illuminate\Http\Request;
 use App\Trail;
-
+use Image;
 class TrailsController extends Controller
 {
     /**
@@ -54,11 +54,11 @@ class TrailsController extends Controller
         if($request->hasFile('img')) {
             $img = $request->file('img');
             $filename = time() . '.' . $img->getClientOriginalExtension();
-            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+            Image::make($img)->resize(300, 300)->save(public_path('/images/trails/' . $filename));
             $trail->img = $filename;
             $trail->save();
         }
-     return redirect('/trails');
+         return redirect('/trails');
     }
 
     /**
@@ -105,14 +105,23 @@ class TrailsController extends Controller
         $trail->time = $request->get('time');
 
         if($request->hasFile('img')) {
-            $img = $request->file('img');
-            $filename = time() . '.' . $img->getClientOriginalExtension();
-            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
-            $trail->img = $filename;
-        }
+            if($trail->img == 'default.jpg') {
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $trail->img = $filename;
+            }else{
+                $image = public_path('/images/stops/' .  $trail->img);
+                File::delete($image);
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $trail->img = $filename;
+            }
         $trail->save();
 
         return redirect('/trails');
+    }
     }
 
     /**
@@ -126,7 +135,8 @@ class TrailsController extends Controller
         $trail = Trail::findOrFail($id);
         $trail->stops()->detach($id);
         $trail->delete();
-
+        $image = public_path('/images/stops/' .  $trail->img);
+        File::delete($image);
         return redirect('/trails');
     }
 

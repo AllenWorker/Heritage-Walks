@@ -7,9 +7,9 @@
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails | {{ $trail->name }}</h2>
-            <a href="{{$trail->id}}/edit" class="button success">Edit Stop</a>
+            <a href="{{$trail->id}}/edit" class="button success">Edit Trail</a>
             <p>
-                <button class="button success" data-open="Modal">Delete Stop</button>
+                <button class="button success" data-open="Modal">Delete Trail</button>
             </p>
         </div>
         <div class="small-12 medium-12 large-12 callout">

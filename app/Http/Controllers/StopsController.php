@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Stop;
 use Image;
-
+use File;
 class StopsController extends Controller
 {
     /**
@@ -108,12 +108,23 @@ class StopsController extends Controller
         $stop->coord_x = $request->get('coord_x');
         $stop->coord_y = $request->get('coord_y');
 
+
         if($request->hasFile('img')) {
-            $img = $request->file('img');
-            $filename = time() . '.' . $img->getClientOriginalExtension();
-            Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
-            $stop->img = $filename;
+            if($stop->img == 'default.jpg') {
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $stop->img = $filename;
+            }else{
+                $image = public_path('/images/stops/' .  $stop->img);
+                File::delete($image);
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $stop->img = $filename;
+            }
         }
+
 
         $stop->save();
         return redirect('/stops');
@@ -130,6 +141,8 @@ class StopsController extends Controller
         $stop = Stop::findOrFail($id);
         $stop->trails()->detach($id);
         $stop->delete();
+        $image = public_path('/images/stops/' .  $stop->img);
+        File::delete($image);
         return redirect('/stops');
     }
 
