@@ -111,6 +111,7 @@ class StopsController extends Controller
     public function destroy($id)
     {
         $stop = Stop::findOrFail($id);
+        $stop->trails()->detach($id);
         $stop->delete();
         return redirect('/stops');
     }

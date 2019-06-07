@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section ('title' , 'Stops')
 
@@ -47,7 +47,16 @@
             </table>
         </div>
     </div>
-
+	<div class="small-12 medium-12 large-12 callout">
+		<h3>Trails</h3>
+		<ul>
+			@foreach($stop->trails as $trails)
+				<a href="../../trails/{{$trails->id}}">
+					<li>{{$trails->name}}</li>
+				</a>
+			@endforeach
+		</ul>
+	</div>
 	<div class="reveal" id="Modal" data-reveal>
 		<h1>Are you sure?</h1>
 		<p class="lead">Do you wish to delete this?</p>

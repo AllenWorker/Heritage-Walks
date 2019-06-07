@@ -8,7 +8,8 @@ class Stop extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function trail() {
-        return $this->belongsToMany(Trail::class);
+    public function trails() {
+        return $this->belongsToMany('App\Trail', 'trail_stop');
+//        return $this->belongsToMany(Trail::class, 'trail_stop')->withTimestamps;
     }
 }
