@@ -42,26 +42,14 @@ class TrailsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->get('stops'));
       $validated = request()->validate([
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
 
        ]);
-//      dd($request);
       Trail::create($validated);
 
-
-      $trail = Trail::where('name', $request->get('name'))->get();
-//      $trail->stops()->attach($request->get('stops'));
-        $stops=$request->get('stops');
-//        dd($stops);
-        foreach ($stops as $stop)
-        {
-          dd($stop);
-            $trail->stops()->attach($stop);
-        }
     }
 
     /**
