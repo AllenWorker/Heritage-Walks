@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Stop;
 use Illuminate\Http\Request;
 use App\Trail;
-
+use Image;
 class TrailsController extends Controller
 {
     /**
@@ -42,14 +42,14 @@ class TrailsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->get('stops'));
+     
       $validated = request()->validate([
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
 
        ]);
-//      dd($request);
+
       Trail::create($validated);
 
 
@@ -64,6 +64,18 @@ class TrailsController extends Controller
 ////          dd((int)$stop);
 //            $trail->stops()->sync((int)$stop);
 //        }
+
+
+     $trail = Trail::create($validated);
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $filename = time() . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(300, 300)->save(public_path('/images/trails/' . $filename));
+            $trail->img = $filename;
+            $trail->save();
+        }
+         return redirect('/trails');
+
     }
 
     /**
@@ -108,9 +120,25 @@ class TrailsController extends Controller
         $trail->name = $request->get('name');
         $trail->length = $request->get('length');
         $trail->time = $request->get('time');
+
+        if($request->hasFile('img')) {
+            if($trail->img == 'default.jpg') {
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $trail->img = $filename;
+            }else{
+                $image = public_path('/images/stops/' .  $trail->img);
+                File::delete($image);
+                $img = $request->file('img');
+                $filename = time() . '.' . $img->getClientOriginalExtension();
+                Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
+                $trail->img = $filename;
+            }
         $trail->save();
 
         return redirect('/trails');
+        }
     }
 
     /**
@@ -124,9 +152,20 @@ class TrailsController extends Controller
         $trail = Trail::findOrFail($id);
         $trail->stops()->detach($id);
         $trail->delete();
-
+        $image = public_path('/images/stops/' .  $trail->img);
+        File::delete($image);
         return redirect('/trails');
     }
 
 
+
+    public function apiAll()
+    {
+        return Trail::all();
+    }
+
+    public function apiOne($id)
+    {
+        return Trail::findOrFail($id);
+    }
 }

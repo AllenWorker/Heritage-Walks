@@ -15,7 +15,7 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" action="/stops" class="callout small-12 medium-12 large-12" name="addStop">
+        <form method="post" enctype="multipart/form-data" action="/stops" class="callout small-12 medium-12 large-12" name="addStop">
             {{csrf_field()}}
             <div class=" grid-x grid-margin-x">
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
@@ -41,6 +41,11 @@
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="coord_y">Longitude (Y)
                         <input type="text" name="coord_y">
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="img">Image
+                        <input type="file" name="img">
                     </label>
                 </div>
                 <div class="large-offset-1 medium-offset-1">
