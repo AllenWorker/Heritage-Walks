@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'username'; //or return the field which you want to use.
+        return 'name'; //or return the field which you want to use.
     }
     /**
      * Where to redirect users after login.

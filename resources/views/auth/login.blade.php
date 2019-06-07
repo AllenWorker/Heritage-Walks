@@ -14,16 +14,16 @@
                     @csrf
 
                     <div>
-                        <label for="email">{{ __('E-Mail Address') }}</label>
+                        <label for="name">{{ __('Username') }}</label>
 
                         <div>
-                            <input id="email" type="email"
-                                   class="form-control{{ $errors->has('email') ? ' alert' : '' }}" name="email"
-                                   value="{{ old('email') }}" required autofocus>
+                            <input id="name" type="text"
+                                   class="form-control{{ $errors->has('name') ? ' alert' : '' }}" name="name"
+                                   value="{{ old('name') }}" required autofocus>
 
-                            @if ($errors->has('email'))
+                            @if ($errors->has('name'))
                                 <span class="alert" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                             @endif
                         </div>
