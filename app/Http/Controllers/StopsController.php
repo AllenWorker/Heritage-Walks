@@ -9,7 +9,7 @@ use File;
 class StopsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the stops.
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +23,7 @@ class StopsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a stop.
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,8 +33,9 @@ class StopsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a newly created stop into database.
+     * Stores a image in the public/images/stops
+     * returns to Display a listing of the stops.
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -63,8 +64,7 @@ class StopsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Display the specified stop
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -75,8 +75,7 @@ class StopsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     * Show the form for editing the specified stop
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -88,7 +87,7 @@ class StopsController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * also if user change the image it will remove old image and add new image to public/images/stops
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -132,7 +131,7 @@ class StopsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified stop from database.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -155,11 +154,20 @@ class StopsController extends Controller
 
     }
 
+    /**
+     * Api for showing all of the stops
+     * @return Stop[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function apiAll()
     {
         return Stop::all();
     }
 
+    /**
+     * Api for showing only one stop
+     * @param $id
+     * @return mixed
+     */
     public function apiOne($id)
     {
             return Stop::findOrFail($id);

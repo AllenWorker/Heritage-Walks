@@ -12,8 +12,7 @@ use File;
 class TrailsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of the trails
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -26,8 +25,7 @@ class TrailsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
+     * Show the form for creating a new trail
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -38,7 +36,7 @@ class TrailsController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *  add new image to public/images/trail
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -72,8 +70,7 @@ class TrailsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Display the specified trail
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -84,8 +81,7 @@ class TrailsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     * Show the form for editing the specified trail
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -97,8 +93,8 @@ class TrailsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Update the specified trail in database.
+     * also if user change the image it will remove old image and add new image to public/images/trails
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -146,8 +142,7 @@ class TrailsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Remove the specified trail from database
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -168,12 +163,20 @@ class TrailsController extends Controller
         return redirect('/trails');
     }
 
-
+    /**
+     * Api for showing all of the trails from the database
+     * @return Trail[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function apiAll()
     {
         return Trail::all();
     }
 
+    /**
+     * Api for showing only one trail from the database
+     * @param $id
+     * @return mixed
+     */
     public function apiOne($id)
     {
         return Trail::findOrFail($id);
