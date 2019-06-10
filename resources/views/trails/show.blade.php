@@ -7,6 +7,7 @@
     <div class="grid-x grid-padding-x">
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails | {{ $trail->name }}</h2>
+            <a href="/trails/" class="button">Back</a>
             <a href="{{$trail->id}}/edit" class="button success">Edit Trail</a>
             <p>
                 <button class="button success" data-open="Modal">Delete Trail</button>
@@ -59,6 +60,7 @@
         @endforeach
         </ul>
     </div>
+
     <div class="reveal" id="Modal" data-reveal>
         <h1>Are you sure?</h1>
         <p class="lead">Do you wish to delete this?</p>
