@@ -42,6 +42,7 @@ class StopsController extends Controller
     {
         $validated = request()->validate([
             'name' => ['required'],
+            'street_location' => ['required'],
             'short_desc' => ['required'],
             'full_desc' => ['required'],
             'coord_x' => ['required', 'numeric'],
@@ -141,9 +142,17 @@ class StopsController extends Controller
         $stop = Stop::findOrFail($id);
         $stop->trails()->detach($id);
         $stop->delete();
-        $image = public_path('/images/stops/' .  $stop->img);
-        File::delete($image);
-        return redirect('/stops');
+        if($stop->img == 'default.jpg') {
+            return redirect('/stops');
+        }
+        else {
+            $image = public_path('/images/stops/' .  $stop->img);
+            File::delete($image);
+            return redirect('/stops');
+        }
+
+
+
     }
 
     public function apiAll()

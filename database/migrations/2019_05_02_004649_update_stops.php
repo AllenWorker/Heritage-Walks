@@ -17,6 +17,7 @@ class UpdateStops extends Migration
             $table->text('short_desc')->change();
             $table->text('full_desc')->change();
             $table->string('img')->default('default.jpg');
+            $table->string('street_location');
         });
     }
 

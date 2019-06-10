@@ -24,6 +24,11 @@
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
+                    <label for="street_location">Street Location
+                        <textarea name="street_location"> </textarea>
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="short_desc">Short Description
                         <textarea name="short_desc"> </textarea>
                     </label>

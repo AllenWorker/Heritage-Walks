@@ -18,8 +18,8 @@ class CreateStops extends Migration
             $table->string('name');
             $table->string('short_desc');
             $table->string('full_desc');
-            $table->decimal('coord_x');
-            $table->decimal('coord_y');
+            $table->decimal('coord_x', 10, 6);
+            $table->decimal('coord_y', 10, 6);
             $table->timestamps();
         });
     }

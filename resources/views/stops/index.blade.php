@@ -12,6 +12,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Street Location</th>
                     <th>Short Description</th>
                     <th>Details</th>
                 </tr>
@@ -19,6 +20,7 @@
                     <tr>
                         <td><p>{{ $aStop->id }}</p></td>
                         <td><p>{{ $aStop->name }}</p></td>
+                        <td><p>{{ $aStop->street_location }}</p></td>
                         <td><p>{{ $aStop->short_desc }}</p></td>
                         <td><a href="/stops/{{ $aStop->id }}">Details</a></td>
                     </tr>
