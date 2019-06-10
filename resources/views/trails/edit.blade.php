@@ -15,7 +15,8 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" enctype="multipart/form-data" action="{{ route('trails.update', $trail->id) }}" class="callout small-12 medium-12 large-12" name="edittrail">
+        <form method="post" enctype="multipart/form-data" action="{{ route('trails.update', $trail->id) }}"
+              class="callout small-12 medium-12 large-12" name="edittrail">
             @method('PATCH')
             @csrf
             <div class=" grid-x grid-margin-x">
@@ -45,9 +46,20 @@
                     @foreach($stops as $aStop)
                         <div>
                             <label>
-                                <input type="checkbox" value="{{$aStop->id}}" name="stops[]">
+                                <input
+                                        type="checkbox"
+                                        name="stops[]"
+                                        value="{{$aStop->id}}"
+                                        id="{{$aStop->id}}"
+                                        @if($trail->stops->contains($aStop->id)) checked=checked @endif}}
 
-                                {{ $aStop->name }}</label>
+                                >{{ $aStop->name }}
+                                <!--<input
+                                        type="checkbox"
+                                        value="{{--$aStop->id}}"
+                                        name="stops[]"
+                                    >{{ $aStop->name --}}-->
+                            </label>
                         </div>
                     @endforeach
                 </div>
