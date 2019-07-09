@@ -20,14 +20,14 @@
     <div class="grid-x">
         <header class="large-12 medium-12 small-12">
             <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-                <img class="img align-right" src="{{ asset('images/logo.png') }}">
+                <img class="img align-right" alt="logo" src="{{ asset('images/logo.png') }}">
                 <button class="menu-icon" type="button" data-toggle="example-menu"></button>
                 <div class="title-bar-title">Menu</div>
             </div>
             <nav class="top-bar" id="example-menu">
                 <div class="logo-wrapper hide-for-small-only">
                     <div class="logo">
-                        <img class="img" src="{{ asset('images/logo.png') }}">
+                        <img class="img" alt="logo" src="{{ asset('images/logo.png') }}">
                     </div>
                 </div>
                 <div class="top-bar-left">

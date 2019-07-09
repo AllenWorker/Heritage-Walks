@@ -66,8 +66,8 @@
                         </div>
                         <div class="large-6 medium-6 small-offset-1  large-offset-0">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
-                                    <button class="button alert">{{ __('Forgot Your Password?') }}</button>
+                                <a class="button alert" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
                         </div>
