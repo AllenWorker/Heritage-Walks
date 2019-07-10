@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('mapjs','')
 </head>
 <body class="background">
 <div class="grid-container">

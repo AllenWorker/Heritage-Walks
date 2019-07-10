@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 use App\Stop;
 use Image;
@@ -71,7 +72,18 @@ class StopsController extends Controller
     public function show($id)
     {
         $stop = Stop::findOrFail($id);
-        return view('stops.show', compact('stop'));
+        $config['center'] = 'auto';
+        $config['zoom'] = '18';
+        $config['map_height'] = '300px';
+        $config['map_weight'] = '300px';
+        $config['scrollwheel'] = false;
+//        GMaps::initialize($config);
+//        $map = GMaps::create_map();
+        $gmap = new GMaps();
+        $gmap->initialize($config);
+
+        $map = $gmap->create_map();
+        return view('stops.show', compact('stop'))->with('map', $map);
     }
 
     /**
