@@ -13,6 +13,7 @@ class TrailsSeeder extends Seeder
     {
         DB::table('trails')->insert([
             'name' => 'Parks & Gardens Walking Trail',
+            'description' => 'trails',
             'time' => 0,
             'length' => 0,
             'created_at' => DB::raw('CURRENT_TIMESTAMP'),

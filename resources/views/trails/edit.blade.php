@@ -26,6 +26,11 @@
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
+                    <label for="description">Description
+                        <textarea name="description">{{ $trail->description }}</textarea>
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="length">Length (km)
                         <input type="text" name="length" value="{{ $trail->length }}">
                     </label>
@@ -65,9 +70,6 @@
                 </div>
                 <div class="large-offset-1 medium-offset-1 small-offset-3">
                     <a href="/trails" type="submit" class="button">Back</a>
-                </div>
-                <div class="large-offset-3 medium-offset-3 small-offset-3">
-                    <input type="reset" class="button alert" value="Clear Form">
                 </div>
                 <div class="large-offset-4 medium-offset-3 small-offset-3">
                     <input type="submit" class="button success" value="Save">

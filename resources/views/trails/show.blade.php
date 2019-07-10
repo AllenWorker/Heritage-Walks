@@ -27,6 +27,10 @@
                     <td>
                 </tr>
                 <tr>
+                    <th>Description</th>
+                    <td>{{$trail->description}}</td>
+                </tr>
+                <tr>
                     <th>Length (Km)</th>
                     <td> {{ $trail->length }}
                     <td>

@@ -47,7 +47,7 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
-
+            'description' =>['required'],
         ]);
 
         $trail = Trail::create($validated);
@@ -105,12 +105,14 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
+            'description' => ['required'],
         ]);
 
         $trail = trail::findOrFail($id);
         $trail->name = $request->get('name');
         $trail->length = $request->get('length');
         $trail->time = $request->get('time');
+        $trail->description = $request->get('description');
 
         if ($request->hasFile('img')) {
             if ($trail->img == 'default.jpg') {

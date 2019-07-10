@@ -16,6 +16,7 @@ class CreateTrails extends Migration
         Schema::create('trails', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('description');
             $table->decimal('time');
             $table->decimal('length');
             $table->timestamps();

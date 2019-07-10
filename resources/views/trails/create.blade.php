@@ -24,6 +24,11 @@
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
+                    <label for="description">Description
+                        <textarea name="description"></textarea>
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="length">Length (km)
                         <input type="text" name="length">
                     </label>
