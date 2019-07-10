@@ -12,6 +12,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Main Image</th>
                     <th>Street Location</th>
                     <th>Short Description</th>
                     <th>Details</th>
@@ -20,6 +21,7 @@
                     <tr>
                         <td><p>{{ $aStop->id }}</p></td>
                         <td><p>{{ $aStop->name }}</p></td>
+                        <td><img src="/images/stops/{{ $aStop->img }}" style="width:50px; height:50px; float:left;"></td>
                         <td><p>{{ $aStop->street_location }}</p></td>
                         <td><p>{{ $aStop->short_desc }}</p></td>
                         <td><a href="/stops/{{ $aStop->id }}">Details</a></td>
