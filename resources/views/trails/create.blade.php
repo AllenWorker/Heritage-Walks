@@ -20,22 +20,22 @@
             <div class=" grid-x grid-margin-x">
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="name">Name
-                        <input type="text" name="name">
+                        <input type="text" name="name" value="{{ old('name') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="description">Description
-                        <textarea name="description"></textarea>
+                        <textarea name="description">{{ old('description') }}</textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="length">Length (km)
-                        <input type="text" name="length">
+                        <input type="text" name="length"  value="{{ old('length') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="Time">Time (hr)
-                        <input type="text" name="time">
+                        <input type="text" name="time"  value="{{ old('time') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">

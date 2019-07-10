@@ -20,32 +20,32 @@
             <div class=" grid-x grid-margin-x">
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="name">Name
-                        <input type="text" name="name">
+                        <input type="text" name="name"  value="{{ old('name') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="street_location">Street Location
-                        <textarea name="street_location"> </textarea>
+                        <textarea name="street_location">{{ old('street_location') }} </textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="short_desc">Short Description
-                        <textarea name="short_desc"> </textarea>
+                        <textarea name="short_desc">{{ old('short_desc') }} </textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="full_desc">Long Description
-                        <textarea name="full_desc"> </textarea>
+                        <textarea name="full_desc"> {{ old('full_desc') }}</textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="coord_x">Latitude (X)
-                        <input type="text" name="coord_x">
+                        <input type="text" name="coord_x"  value="{{ old('coord_x') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="coord_y">Longitude (Y)
-                        <input type="text" name="coord_y">
+                        <input type="text" name="coord_y"  value="{{ old('coord_y') }}">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
