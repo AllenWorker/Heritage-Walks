@@ -10,7 +10,7 @@
             <a href="/trails/" class="button">Back</a>
             <a href="{{$trail->id}}/edit" class="button success">Edit Trail</a>
             <p>
-                <button class="button success" data-open="Modal">Delete Trail</button>
+                <button class="button alert" data-open="Modal">Delete Trail</button>
             </p>
         </div>
         <div class="small-12 medium-12 large-12 callout">

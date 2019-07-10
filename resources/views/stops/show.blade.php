@@ -9,7 +9,7 @@
             <h2>Stop | {{ $stop->name }}</h2>
 			<a href="/stops/" class="button">Back</a>
             <a  href="{{$stop->id}}/edit" class="button success">Edit Stop</a>
-			<p><button class="button success" data-open="Modal">Delete Stop</button></p>
+			<p><button class="button alert" data-open="Modal">Delete Stop</button></p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
 			<img src="/images/stops/{{ $stop->img }}" style="width:150px; height:150px; float:left;">
