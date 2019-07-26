@@ -21,8 +21,8 @@
         <header class="large-12 medium-12 small-12">
             <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
                 <img class="img align-right" alt="logo" src="{{ asset('images/logo.png') }}">
-                <button class="menu-icon" type="button" data-toggle="example-menu"></button>
-                <div class="title-bar-title">Menu</div>
+                <button class="menu-icon dark"  type="button" data-toggle="example-menu"></button>
+                <div class="title-bar-title" style="color:black;">Menu</div>
             </div>
             <nav class="top-bar" id="example-menu">
                 <div class="logo-wrapper hide-for-small-only">
