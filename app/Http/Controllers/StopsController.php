@@ -59,6 +59,13 @@ class StopsController extends Controller
             $stop->save();
         }
 
+//        if($request->hasFile('Audio')) {
+//            $audio = $request->file('Audio');
+//            $filename = time() . '.' . $audio->getClientOriginalExtension();
+//            Image::make($audio)->save(public_path('/images/stops/' . $filename));
+//            $stop->audio = $filename;
+//            $stop->save();
+//        }
 
         return redirect('/stops');
     }
@@ -125,6 +132,35 @@ class StopsController extends Controller
             }
         }
 
+        if($request->hasFile('Audio')) {
+            if($stop->audio == 'default.mp3') {
+                $audio = $request->file('Audio');
+                $filename = time() . '.' . $audio->getClientOriginalExtension();
+                $request->Audio->storeAs('audio', $filename);
+                $stop->audio = $filename;
+            } else {
+                $audio = public_path('/audio/' .  $stop->audio);
+                File::delete($audio);
+                $img = $request->file('Audio');
+                $filename = time() . '.' . $audio->getClientOriginalExtension();
+                $request->Audio->storeAs('/audio/' . $stop->audio);
+                $stop->audio = $filename;
+            }
+
+//            if($stop->audio == 'default.mp3') {
+//                $audio = $request->file('Audio');
+//                $filename = time() . '.' . $audio->getClientOriginalExtension();
+//                Image::make($audio)->save(public_path('/audio/' . $filename));
+//                $stop->audio = $filename;
+//            }else{
+//                $audio = public_path('/audio/' .  $stop->audio);
+//                File::delete($audio);
+//                $img = $request->file('Audio');
+//                $filename = time() . '.' . $audio->getClientOriginalExtension();
+//                Image::make($audio)->save(public_path('/audio/' . $filename));
+//                $stop->audio = $filename;
+//            }
+        }
 
         $stop->save();
         return redirect('/stops');

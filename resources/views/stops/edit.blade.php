@@ -50,6 +50,11 @@
                         <input type="file" name="img">
                     </label>
                 </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="audio">Audio
+                        <input type="file" name="Audio">
+                    </label>
+                </div>
                 <div class="large-offset-1 medium-offset-1">
                     <a href="/stops" type="submit" class="button">Back</a>
                 </div>

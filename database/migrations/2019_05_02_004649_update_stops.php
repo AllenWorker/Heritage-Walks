@@ -33,6 +33,8 @@ class UpdateStops extends Migration
             $table->dropIfExists('short_desc');
             $table->dropIfExists('full_desc');
             $table->dropIfExists('img');
+            $table->dropIfExists('audio');
+            $table->dropIfExists('street_location');
         });
     }
 }
