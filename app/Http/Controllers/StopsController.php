@@ -96,8 +96,8 @@ class StopsController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'short_desc' => ['required'],
-            'full_desc' => ['required'],
+            'short_desc' => ['required' , 'max:150'],
+            'full_desc' => ['required', 'max:255'],
             'coord_x' => ['required', 'numeric'],
             'coord_y' => ['required', 'numeric']
         ]);

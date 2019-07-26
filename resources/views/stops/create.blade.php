@@ -30,12 +30,12 @@
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="short_desc">Short Description
-                        <textarea name="short_desc">{{ old('short_desc') }} </textarea>
+                        <textarea name="short_desc" rows="3">{{ old('short_desc') }} </textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="full_desc">Long Description
-                        <textarea name="full_desc"> {{ old('full_desc') }}</textarea>
+                        <textarea name="full_desc" rows="5"> {{ old('full_desc') }}</textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">

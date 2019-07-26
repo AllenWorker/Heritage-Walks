@@ -25,7 +25,7 @@
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                     <label for="description">Description
-                        <textarea name="description">{{ old('description') }}</textarea>
+                        <textarea name="description" rows="4">{{ old('description') }}</textarea>
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">

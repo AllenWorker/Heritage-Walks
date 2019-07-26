@@ -47,7 +47,7 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
-            'description' =>['required'],
+            'description' =>['required', 'max:255'],
         ]);
 
         $trail = Trail::create($validated);
@@ -105,7 +105,7 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
-            'description' => ['required'],
+            'description' => ['required' , 'max:255'],
         ]);
 
         $trail = trail::findOrFail($id);
@@ -137,7 +137,7 @@ class TrailsController extends Controller
         foreach ($stops as $stop) {
             $trail->stops()->attach((int)$stop);
         }
-        
+
         $trail->save();
         return redirect('/trails');
 
