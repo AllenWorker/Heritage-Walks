@@ -51,7 +51,10 @@
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
-                    <label for="audio">Audio
+                    <label for="audio">  <audio controls="controls">
+                            <source src="/audio/{{$stop->audio}}" type="audio/mp3" />
+                            Your browser does not support the audio element.
+                        </audio> Audio
                         <input type="file" name="Audio">
                     </label>
                 </div>
