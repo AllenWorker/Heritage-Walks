@@ -22,6 +22,7 @@
                     </tr>
                 @endforeach
             </table>
+            {{ $trails->links()}}
         </div>
     </div>
 @endsection

@@ -28,6 +28,7 @@
                     </tr>
                 @endforeach
             </table>
+            {{ $stops->links()}}
         </div>
     </div>
 @endsection

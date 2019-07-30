@@ -109,6 +109,5 @@ class StopsSeeder extends Seeder
             'created_at' => DB::raw('CURRENT_TIMESTAMP'),
             'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);*/
-
     }
 }
