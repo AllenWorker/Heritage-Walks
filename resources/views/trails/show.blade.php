@@ -57,12 +57,13 @@
     <div class="small-12 medium-12 large-12 callout">
         <h3>Stops</h3>
         <ul>
-        @foreach($trail->stops as $stops)
-            <a href="../../stops/{{$stops->id}}">
-             <li>{{$stops->name}}</li>
+        @foreach($trail->stops as $stop)
+            <a href="../../stops/{{$stop->id}}">
+             <li>{{$stop->name}}</li>
             </a>
         @endforeach
         </ul>
+
     </div>
 
     <div class="reveal" id="Modal" data-reveal>
