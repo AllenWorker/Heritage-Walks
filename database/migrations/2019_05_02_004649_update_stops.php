@@ -17,6 +17,7 @@ class UpdateStops extends Migration
             $table->text('short_desc')->change();
             $table->text('full_desc')->change();
             $table->string('img')->default('default.jpg');
+            $table->string('audio')->default('default.mp3');
             $table->string('street_location');
         });
     }
@@ -32,6 +33,8 @@ class UpdateStops extends Migration
             $table->dropIfExists('short_desc');
             $table->dropIfExists('full_desc');
             $table->dropIfExists('img');
+            $table->dropIfExists('audio');
+            $table->dropIfExists('street_location');
         });
     }
 }
