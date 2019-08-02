@@ -20,6 +20,7 @@
 Route::get('/', 'PagesController@index' );
 Route::resource('stops', 'StopsController')->middleware('auth');
 Route::resource('trails', 'TrailsController')->middleware('auth');
+Route::post('trails/toggleStop', 'TrailsController@toggleStop')->name('trails.toggleStop')->middleware('auth');
 Auth::routes(['register' => false]);
 
 

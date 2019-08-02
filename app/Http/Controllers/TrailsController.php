@@ -30,7 +30,7 @@ class TrailsController extends Controller
      */
     public function create()
     {
-        $stops = Stop::all();
+        $stops = Stop::paginate(3);
         return view('trails.create', compact('stops'));
     }
 
@@ -56,7 +56,6 @@ class TrailsController extends Controller
         foreach ($stops as $stop) {
             $trail->stops()->attach((int)$stop);
         }
-
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
@@ -163,6 +162,42 @@ class TrailsController extends Controller
 
         $trail->delete();
         return redirect('/trails');
+    }
+
+    public function toggleStop(Request $request)
+    {
+        // Get the stepID and check if the stop associated with that id exists
+        // If the stop exists that means that the stop was checked in the form.
+        $stepID = $request->get('stopID');
+        $stepChecked = $request->has('stop', $stepID);
+        echo $stepChecked ? 'true' : 'false';
+
+        // For later reference (during creation) store the new stop in a Session as an array containing an ID and if it was checked
+
+        if ($stepChecked) {
+            // Add to session
+
+        }
+        else
+        {
+            // Remove from session if exists
+
+        }
+        // Example for assigning the stop to the session
+//
+//        $_SESSION['stops'] = [
+//            'id' => '1',
+//            'checked' => 'true',
+//        ];
+//
+//        array_push($_SESSION['stops'], [
+//            'id' => '2',
+//                'checked' => 'true',
+//                ]);
+//        echo var_dump($_SESSION['stops']);
+
+        // This should be called after $_SESSION has been updated
+//        return redirect()->back();
     }
 
     /**
