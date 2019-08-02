@@ -15,7 +15,7 @@ class StopsController extends Controller
      */
     public function index()
     {
-        $stops = Stop::all();
+        $stops = Stop::paginate(15);
         return view(
             'stops.index', /* the view to see */
             compact('stops') /* send the $manufacturers */
@@ -59,6 +59,14 @@ class StopsController extends Controller
             $stop->save();
         }
 
+        if($request->hasFile('Audio')) {
+            $audio = $request->file('Audio');
+            $filename = time() . '.' . $audio->getClientOriginalExtension();
+            $filepath = public_path('/audio/');
+            $audio->move($filepath, $filename);
+            $stop->audio = $filename;
+            $stop->save();
+        }
 
         return redirect('/stops');
     }
@@ -125,6 +133,28 @@ class StopsController extends Controller
             }
         }
 
+        if($request->hasFile('Audio')) {
+            if($stop->audio == 'default.mp3') {
+                if($request->hasFile('Audio')) {
+                    $audio = $request->file('Audio');
+                    $filename = time() . '.' . $audio->getClientOriginalExtension();
+                    $filepath = public_path('/audio/');
+                    $audio->move($filepath, $filename);
+                    $stop->audio = $filename;
+
+                }
+            } else {
+                $audio = public_path('/audio/' . $stop->audio);
+                File::delete($audio);
+                if ($request->hasFile('Audio')) {
+                    $audio = $request->file('Audio');
+                    $filename = time() . '.' . $audio->getClientOriginalExtension();
+                    $filepath = public_path('/audio/');
+                    $audio->move($filepath, $filename);
+                    $stop->audio = $filename;
+                }
+            }
+        }
 
         $stop->save();
         return redirect('/stops');

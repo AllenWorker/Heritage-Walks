@@ -15,6 +15,7 @@ class UpdateTrails extends Migration
     {
         Schema::table('trails', function (Blueprint $table) {
             $table->string('img')->default('default.jpg');
+            $table->string('audio')->default('default.mp3');
         });
     }
 

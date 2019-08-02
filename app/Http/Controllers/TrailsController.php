@@ -17,7 +17,7 @@ class TrailsController extends Controller
      */
     public function index()
     {
-        $trails = Trail::all();
+        $trails = Trail::paginate(15);
         return view(
             'trails.index', /* the view to see */
             compact('trails') /* send the $manufacturers */
