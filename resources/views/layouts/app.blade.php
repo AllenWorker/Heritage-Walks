@@ -58,6 +58,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="/profile">
+                                        {{ __('Profile') }}
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
@@ -76,9 +79,9 @@
         </div>
         <footer class="large-12 medium-12 small-12">
             <div class="callout">
-                <p class="text-center">Created by 2019 Diploma of Software Development Students
-                    <br>
-                    Heritage Walks
+                <p class="text-center">
+                    Heritage Walks <br>
+                    Created by 2019 Diploma of Software Development Students
                 </p>
             </div>
         </footer>

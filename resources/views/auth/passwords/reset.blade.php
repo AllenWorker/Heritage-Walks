@@ -27,7 +27,6 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="form-group ">
                     <label for="password" >{{ __('Password') }}</label>
 
