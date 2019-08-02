@@ -13,8 +13,10 @@ class userSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => "Administrator",
-            'email' => 'adminHW@gmail.com',
+            'email' => 'adminHW@localhost.com',
             'password' => bcrypt('Password!'),
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
     }
 }
