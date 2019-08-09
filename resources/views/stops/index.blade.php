@@ -29,6 +29,17 @@
                 @endforeach
             </table>
             {{ $stops->links()}}
+
+            <div class="grid-container fluid">
+                <div class="grid-x">
+                    <div class="col small-12 medium-6 large-3">
+                        <div class="card">
+                            <div class="card-divider"><h4>Hello World!</h4></div>
+                            <div class="card-section"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
