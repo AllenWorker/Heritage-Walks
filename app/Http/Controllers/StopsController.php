@@ -15,7 +15,7 @@ class StopsController extends Controller
      */
     public function index()
     {
-        $stops = Stop::paginate(15);
+        $stops = Stop::paginate(4);
         return view(
             'stops.index', /* the view to see */
             compact('stops') /* send the $stops */
