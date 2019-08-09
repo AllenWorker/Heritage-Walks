@@ -19,7 +19,7 @@
                     <div class="large-10 large-offset-1 medium-10 medium-offset-1  small-12">
                         <label for="email">Email Address
                             <input type="text" name="email"
-                                   value="{{ Auth::user()->email }}">{{ old('street_location') }} </input>
+                                   value="{{ Auth::user()->email }}"/>
                         </label>
                     </div>
                     <div class="large-offset-1 medium-offset-1">

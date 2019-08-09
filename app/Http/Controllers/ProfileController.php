@@ -13,7 +13,7 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = request()->validate([
             'name' => ['required'],
             'email' => ['required'],
 
@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-
+        $user->save();
 
         return redirect('/profile');
     }
