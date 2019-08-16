@@ -8,20 +8,28 @@
         <div class="callout small-12 medium-12 large-12 text-center">
             <h2>Trails</h2>
             <a href="{{action('TrailsController@create')}}" class="button success">Add Trail</a>
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Details</th>
-                </tr>
-                @foreach($trails as $aTrail)
-                    <tr>
-                        <td><p>{{ $aTrail->id }}</p></td>
-                        <td><p>{{ $aTrail->name }}</p></td>
-                        <td><a href="/trails/{{ $aTrail->id }}">Details</a></td>
-                    </tr>
-                @endforeach
-            </table>
+            <div class="grid-container fluid">
+                <div class="grid-x">
+                    @foreach($trails as $aTrail)
+                        <div class="col small-12 medium-6 large-6">
+                            <div class="card">
+                                <div class="card-divider">
+                                    <h4>
+                                        {{$aTrail -> id}} {{$aTrail -> name}}
+                                    </h4>
+                                </div>
+                                <div class="card-section">
+                                    <div class="grid-x">
+                                        <a class="col small-12" href="/trails/{{ $aTrail->id }}">
+                                            <img src="/images/trails/{{ $aTrail->img }}">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
             {{ $trails->links()}}
         </div>
     </div>
