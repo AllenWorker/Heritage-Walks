@@ -11,7 +11,6 @@
             <div class="grid-container fluid">
                 <div class="grid-x">
                     @foreach($stops as $aStop)
-
                         <div class="col small-12 medium-6 large-6">
                             <div class="card">
                                 <div class="card-divider">
