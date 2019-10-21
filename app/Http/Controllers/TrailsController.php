@@ -181,6 +181,7 @@ class TrailsController extends Controller
      */
     public function apiOne($id)
     {
-        return Trail::findOrFail($id);
+        return Trail::findOrFail($id)->stops;
+        //return Trail::findOrFail($id);
     }
 }
