@@ -22,4 +22,5 @@ Route::get('stops/{id}', 'StopsController@apiOne');
 
 Route::get('trails', 'TrailsController@apiAll');
 Route::get('trails/{id}', 'TrailsController@apiOne');
+Route::get('trailstops/{id}', 'TrailsController@apiStops');
 

@@ -175,13 +175,25 @@ class TrailsController extends Controller
     }
 
     /**
-     * Api for showing only one trail from the database
+     * Api for showing only one trail from the database with pivot table
+     * @param $id
+     * @return mixed
+     */
+    public function apiStops($id)
+    {
+        return Trail::findOrFail($id)->stops;
+        //return Trail::findOrFail($id);
+    }
+	
+	
+
+    /**
+     * Api for showing only one trail from the database without pivot table
      * @param $id
      * @return mixed
      */
     public function apiOne($id)
     {
-        return Trail::findOrFail($id)->stops;
-        //return Trail::findOrFail($id);
+        return Trail::findOrFail($id);
     }
 }
