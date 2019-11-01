@@ -21,6 +21,12 @@ Route::get('/', 'PagesController@index' );
 Route::resource('profile', 'ProfileController')->middleware('auth');
 Route::resource('stops', 'StopsController')->middleware('auth');
 Route::resource('trails', 'TrailsController')->middleware('auth');
+Route::get('database', 'PagesController@database');
+
+
+
+
+
 Auth::routes(['register' => false]);
 
 

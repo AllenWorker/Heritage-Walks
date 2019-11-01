@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Artisan;
 
 
 class PagesController extends Controller
@@ -22,4 +23,9 @@ class PagesController extends Controller
         }
 
     }
+	
+	public function database() {
+		$exitCode = Artisan::call('migrate:refresh', ['--seed' => true]);
+		return view('pages.database');
+	}
 }
