@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Stop;
 use Image;
 use File;
+
 class StopsController extends Controller
 {
     /**
@@ -51,7 +52,7 @@ class StopsController extends Controller
         ]);
         $stop = Stop::create($validated);
 
-        if($request->hasFile('img')) {
+        if ($request->hasFile('img')) {
             $img = $request->file('img');
             $filename = time() . '.' . $img->getClientOriginalExtension();
             Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
@@ -59,7 +60,7 @@ class StopsController extends Controller
             $stop->save();
         }
 
-        if($request->hasFile('Audio')) {
+        if ($request->hasFile('Audio')) {
             $audio = $request->file('Audio');
             $filename = time() . '.' . $audio->getClientOriginalExtension();
             $filepath = public_path('/audio/');
@@ -104,7 +105,7 @@ class StopsController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'short_desc' => ['required' , 'max:355'],
+            'short_desc' => ['required', 'max:355'],
             'full_desc' => ['required'],
             'coord_x' => ['required', 'numeric'],
             'coord_y' => ['required', 'numeric']
@@ -117,14 +118,14 @@ class StopsController extends Controller
         $stop->coord_y = $request->get('coord_y');
 
 
-        if($request->hasFile('img')) {
-            if($stop->img == 'default.jpg') {
+        if ($request->hasFile('img')) {
+            if ($stop->img == 'default.jpg') {
                 $img = $request->file('img');
                 $filename = time() . '.' . $img->getClientOriginalExtension();
                 Image::make($img)->resize(300, 300)->save(public_path('/images/stops/' . $filename));
                 $stop->img = $filename;
-            }else{
-                $image = public_path('/images/stops/' .  $stop->img);
+            } else {
+                $image = public_path('/images/stops/' . $stop->img);
                 File::delete($image);
                 $img = $request->file('img');
                 $filename = time() . '.' . $img->getClientOriginalExtension();
@@ -133,16 +134,13 @@ class StopsController extends Controller
             }
         }
 
-        if($request->hasFile('Audio')) {
-            if($stop->audio == 'default.mp3') {
-                if($request->hasFile('Audio')) {
-                    $audio = $request->file('Audio');
-                    $filename = time() . '.' . $audio->getClientOriginalExtension();
-                    $filepath = public_path('/audio/');
-                    $audio->move($filepath, $filename);
-                    $stop->audio = $filename;
-
-                }
+        if ($request->hasFile('Audio')) {
+            if ($stop->audio == 'default.mp3') {
+                $audio = $request->file('Audio');
+                $filename = time() . '.' . $audio->getClientOriginalExtension();
+                $filepath = public_path('/audio/');
+                $audio->move($filepath, $filename);
+                $stop->audio = $filename;
             } else {
                 $audio = public_path('/audio/' . $stop->audio);
                 File::delete($audio);
@@ -170,17 +168,17 @@ class StopsController extends Controller
     {
         $stop = Stop::findOrFail($id);
         $stop->trails()->detach($id);
-        $stop->delete();
-        if($stop->img == 'default.jpg') {
-            return redirect('/stops');
-        }
-        else {
-            $image = public_path('/images/stops/' .  $stop->img);
+        if ($stop->img != 'default.jpg') {
+            $image = public_path('/images/stops/' . $stop->img);
             File::delete($image);
-            return redirect('/stops');
         }
 
-
+        if ($stop->audio != 'default.mp3') {
+            $audio = public_path('/audio/' . $stop->audio);
+            File::delete($audio);
+        }
+        $stop->delete();
+        return redirect('/stops');
 
     }
 
@@ -200,7 +198,7 @@ class StopsController extends Controller
      */
     public function apiOne($id)
     {
-            return Stop::findOrFail($id);
+        return Stop::findOrFail($id);
     }
 
 

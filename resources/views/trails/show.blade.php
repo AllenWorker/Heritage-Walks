@@ -14,7 +14,11 @@
             </p>
         </div>
         <div class="small-12 medium-12 large-12 callout">
-                    <img src="/images/trails/{{ $trail->img }}" style="width:150px; height:150px; float:left;">
+            <img src="/images/trails/{{ $trail->img }}" style="width:150px; height:150px; float:left;">
+            <audio controls="controls">
+                <source src="/audio/{{$trail->audio}}" type="audio/mp3" />
+                Your browser does not support the audio element.
+            </audio>
             <table>
                 <tr>
                     <th>ID</th>

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section ('title' , 'Heritage Walks - Add Trails')
+@section ('title' , 'Heritage Walks - Add Trail')
 
 @section('content')
     <br>
     <div class="grid-x grid-padding-x">
         <div class="small-12 medium-12 large-12 callout text-center">
-            <h3>Add Trails</h3>
+            <h3>Add Trail</h3>
         </div>
         @if($errors->any())
             <div class="small-12 medium-12 large-12 callout alert ">
@@ -41,6 +41,11 @@
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <label for="img">Image
                         <input type="file" name="img">
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="audio">Audio
+                        <input type="file" name="Audio">
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">

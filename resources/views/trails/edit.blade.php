@@ -47,6 +47,14 @@
                     </label>
                 </div>
                 <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
+                    <label for="audio">  <audio controls="controls">
+                            <source src="/audio/{{$trail->audio}}" type="audio/mp3" />
+                            Your browser does not support the audio element.
+                        </audio> Audio
+                        <input type="file" name="Audio">
+                    </label>
+                </div>
+                <div class="large-10 large-offset-1 medium-10 medium-offset-1 small-12">
                     <h5> Edit Stops</h5>
                     @foreach($stops as $aStop)
                         <div>
@@ -59,11 +67,6 @@
                                         @if($trail->stops->contains($aStop->id)) checked=checked @endif}}
 
                                 >{{ $aStop->name }}
-                                <!--<input
-                                        type="checkbox"
-                                        value="{{--$aStop->id}}"
-                                        name="stops[]"
-                                    >{{ $aStop->name --}}-->
                             </label>
                         </div>
                     @endforeach

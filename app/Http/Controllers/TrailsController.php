@@ -47,7 +47,7 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
-            'description' =>['required', 'max:255'],
+            'description' => ['required', 'max:255'],
         ]);
 
         $trail = Trail::create($validated);
@@ -63,6 +63,15 @@ class TrailsController extends Controller
             $filename = time() . '.' . $img->getClientOriginalExtension();
             Image::make($img)->resize(300, 300)->save(public_path('/images/trails/' . $filename));
             $trail->img = $filename;
+            $trail->save();
+        }
+
+        if ($request->hasFile('Audio')) {
+            $audio = $request->file('Audio');
+            $filename = time() . '.' . $audio->getClientOriginalExtension();
+            $filepath = public_path('/audio/');
+            $audio->move($filepath, $filename);
+            $trail->audio = $filename;
             $trail->save();
         }
         return redirect('/trails');
@@ -105,7 +114,7 @@ class TrailsController extends Controller
             'name' => ['required'],
             'length' => ['required'],
             'time' => ['required'],
-            'description' => ['required' , 'max:255'],
+            'description' => ['required', 'max:255'],
         ]);
 
         $trail = trail::findOrFail($id);
@@ -127,6 +136,26 @@ class TrailsController extends Controller
                 $filename = time() . '.' . $img->getClientOriginalExtension();
                 Image::make($img)->resize(300, 300)->save(public_path('/images/trails/' . $filename));
                 $trail->img = $filename;
+            }
+        }
+
+        if ($request->hasFile('Audio')) {
+            if ($trail->audio == 'default.mp3') {
+                $audio = $request->file('Audio');
+                $filename = time() . '.' . $audio->getClientOriginalExtension();
+                $filepath = public_path('/audio/');
+                $audio->move($filepath, $filename);
+                $trail->audio = $filename;
+            } else {
+                $audio = public_path('/audio/' . $trail->audio);
+                File::delete($audio);
+                if ($request->hasFile('Audio')) {
+                    $audio = $request->file('Audio');
+                    $filename = time() . '.' . $audio->getClientOriginalExtension();
+                    $filepath = public_path('/audio/');
+                    $audio->move($filepath, $filename);
+                    $trail->audio = $filename;
+                }
             }
         }
 
@@ -154,13 +183,15 @@ class TrailsController extends Controller
         foreach ($trail->stops as $stop) {
             $trail->stops()->detach($stop->id);
         }
-
-
         if ($trail->img != 'default.jpg') {
             $image = public_path('/images/stops/' . $trail->img);
             File::delete($image);
         }
 
+        if ($trail->audio != 'default.mp3') {
+            $audio = public_path('/audio/' . $trail->audio);
+            File::delete($audio);
+        }
         $trail->delete();
         return redirect('/trails');
     }
@@ -184,8 +215,7 @@ class TrailsController extends Controller
         return Trail::findOrFail($id)->stops;
         //return Trail::findOrFail($id);
     }
-	
-	
+
 
     /**
      * Api for showing only one trail from the database without pivot table
