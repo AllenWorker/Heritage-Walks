@@ -4,4 +4,6 @@ This project is an admin portal for the Heritage Walks project here: https://git
 
 This portal allows for the administrator of the Heritage Walks system to modify what trails, stops and other data is available from within the application. This portal utilises Laravel (a PHP framework) to provide easy setup and allow for quick deployment on to a PHP supported web server. 
 
+A live version of this portal is currently available at https://heritage-walks.screencraft.net.au/ as of 17/11/2019
+
 This portal was developed using both Laravel (a PHP framework) and Laragon (an all in one web/database setup for Windows).
