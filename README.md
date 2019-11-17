@@ -1,7 +1,7 @@
 # Heritage-Walks
 
-This project is an admin portal for an upcoming mobile application, that will allow for users to use as a tour guide to see where certain locations are and get information on these locations.
+This project is an admin portal for the Heritage Walks project here: https://github.com/AllenWorker/HertiageWalks-XamarinForm The application allows for users to use it in place of a tour guide as they follow a given heritage walk.
 
-This portal allows for the admininstrator of the system to be able to add, update, delete and read from a database.
+This portal allows for the administrator of the Heritage Walks system to modify what trails, stops and other data is available from within the application. This portal utilises Laravel (a PHP framework) to provide easy setup and allow for quick deployment on to a PHP supported web server. 
 
-Developed using Laravel (a PHP framework) and Laragon (an all in one web/database setup for Windows).
+This portal was developed using both Laravel (a PHP framework) and Laragon (an all in one web/database setup for Windows).
